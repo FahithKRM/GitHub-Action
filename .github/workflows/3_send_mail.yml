@@ -1,0 +1,63 @@
+name: Send a Mail
+on: push
+
+jobs:
+  send_mail: # job ID
+    runs-on: ubuntu-latest # OS (VM) type
+
+    steps:
+      - name: Print Mail Send
+        run: echo "Mail Send"
+
+      - name: Send to Mail
+        if: ${{ always() }}
+        uses: fahith/send-mailer@v1.0.2
+        with:
+          host: smtp.gmail.com
+          # Optional port (defaults to 465)
+          port: 465
+
+          account: ${{secrets.ACCOUNT}}
+          password: ${{secrets.MAIL_PASSWORD}}
+
+          sender: FahithKRM
+          # from: ${{secrets.MAIL_ADDRESS}}
+          to: mrlife112233@gmail.com
+          subject: Test send mail.
+          body: Testing the send mail messages from github action.
+          # Optional content type (defaults to text/plain)
+          # contentType: text/plain
+          # Optional attachment files (JSON type. require property 'path')
+          # attachments: '[{"path":"README.md"}]'
+
+
+
+
+
+#           '''
+#           name: Send Email with Secret
+
+# on: [push]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Send mail
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           # mail server settings
+#           server_address: smtp.gmail.com
+#           server_port: 465
+
+#           # user credentials from GitHub Secrets
+#           username: ${{ secrets.EMAIL_USERNAME }}
+#           password: ${{ secrets.EMAIL_PASSWORD }}
+          
+#           # email content
+#           subject: GitHub Action Notification
+#           body: The workflow has finished running.
+#           to: your_email@example.com
+#           from: GitHub Actions
+
+#           '''
