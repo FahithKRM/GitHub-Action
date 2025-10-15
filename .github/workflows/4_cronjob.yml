@@ -2,21 +2,20 @@ name: Cron Job workflow
 on:
   schedule:
     - cron: '* * * * *'
-
+  workflow_dispatch:
 
 jobs:
   cron_job_id:
     runs-on: ubuntu-latest
 
-
     steps:
-      - name: Clone repo
-        uses: action/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup python
+      - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.13'
 
-      - name: Run python script
+      - name: Run Python script
         run: python hello.py
