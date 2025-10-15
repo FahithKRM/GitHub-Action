@@ -1,0 +1,18 @@
+name: Run Python Hello # workflow name
+on: push # event tigger [push, pull, schedule]
+
+jobs: # all jobs; one or more than
+  pyHello: # job ID for each job
+    runs-on: ubuntu-latest # VM type
+
+    steps: # job order [in list]
+      - name: Clone repo # name of the step
+        uses: actions/checkout@v3 # any actions
+
+      - name: Setup python # name of the step
+        uses: actions/checkout@v5 # any actions
+        with: # version type
+          python-version: '3.13'
+
+      - name: Run a py script # name of the step
+        run: python 1_hello.py # output (excution) 
