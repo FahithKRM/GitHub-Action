@@ -10,9 +10,9 @@ jobs: # all jobs; one or more than
         uses: actions/checkout@v3 # any actions
 
       - name: Setup python # name of the step
-        uses: actions/checkout@v5 # any actions
+        uses: actions/checkout@v4 # any actions
         with: # version type
-          python-version: '3.13'
+          python-version: '3.10'
 
       - name: Run a py script # name of the step
-        run: python 1_hello.py # output (excution) 
+        run: python hello.py # output (excution) 
