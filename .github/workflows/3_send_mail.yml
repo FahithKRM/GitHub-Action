@@ -1,60 +1,28 @@
-name: Send a Mail
-on: push
-
-jobs:
-  send_mail: # job ID
-    runs-on: ubuntu-latest # OS (VM) type
-
-    steps:
-      - name: Print Mail Send
-        run: echo "Mail Send"
-
-      - name: Send to Mail
-        if: ${{ always() }}
-        uses: dawidd6/action-send-mail@v3
-        with:
-          # mail server settings
-          server_address: smtp.gmail.com
-          server_port: 465
-
-          # user credentials from GitHub Secrets
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          
-          # email content
-          subject: GitHub Action Notification
-          body: The workflow has finished running.
-          to: mrlife112233@gmail.com
-          from: GitHub Actions
-
-
-
-
-
-#           '''
-#           name: Send Email with Secret
-
-# on: [push]
+# name: Send a Mail
+# on: push
 
 # jobs:
-#   build:
-#     runs-on: ubuntu-latest
+#   send_mail: # job ID
+#     runs-on: ubuntu-latest # OS (VM) type
+
 #     steps:
-#       - name: Send mail
-        # uses: dawidd6/action-send-mail@v3
-        # with:
-        #   # mail server settings
-        #   server_address: smtp.gmail.com
-        #   server_port: 465
+#       - name: Print Mail Send
+#         run: echo "Mail Send"
 
-        #   # user credentials from GitHub Secrets
-        #   username: ${{ secrets.EMAIL_USERNAME }}
-        #   password: ${{ secrets.EMAIL_PASSWORD }}
+#       - name: Send to Mail
+#         if: ${{ always() }}
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           # mail server settings
+#           server_address: smtp.gmail.com
+#           server_port: 465
+
+#           # user credentials from GitHub Secrets
+#           username: ${{ secrets.EMAIL_USERNAME }}
+#           password: ${{ secrets.EMAIL_PASSWORD }}
           
-        #   # email content
-        #   subject: GitHub Action Notification
-        #   body: The workflow has finished running.
-        #   to: your_email@example.com
-        #   from: GitHub Actions
-
-#           '''
+#           # email content
+#           subject: GitHub Action Notification
+#           body: The workflow has finished running.
+#           to: mrlife112233@gmail.com
+#           from: GitHub Actions
